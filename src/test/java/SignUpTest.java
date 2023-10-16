@@ -6,11 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
-public class SignUpSearch {
+public class SignUpTest {
 
     @Test
     public void signUp() {
@@ -40,7 +38,7 @@ public class SignUpSearch {
         Assert.assertEquals(heading.getText(),"Hi, Bartek Testowy");
 
 
-        //driver.quit();
+        driver.quit();
 
 
     }
