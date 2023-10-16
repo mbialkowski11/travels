@@ -67,11 +67,14 @@ public class SignUpSearchHomework {
 
         driver.findElement(By.xpath("//button[text()=' Sign Up']")).click();
 
-        WebElement warning = driver.findElement(By.xpath("//div[@class='alert alert-danger']//p"));
-        SoftAssert softAssert = new SoftAssert();
-        //softAssert.assertTrue(warning.conta);
+        List<String> errors = driver.findElements(By.xpath("//div[@class='alert alert-danger']//p")).stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
 
-       // driver.quit();
+        Assert.assertTrue(errors.contains("The Email field must contain a valid email address."));
+
+
+        driver.quit();
 
     }
 }
