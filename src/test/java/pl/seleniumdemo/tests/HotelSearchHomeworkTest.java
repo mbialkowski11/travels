@@ -1,9 +1,11 @@
+package pl.seleniumdemo.tests;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class HotelSearchHomeworkTest extends BaseTest{
+public class HotelSearchHomeworkTest extends BaseTest {
 
 
     @Test
