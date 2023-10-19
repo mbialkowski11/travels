@@ -1,30 +1,25 @@
 package pl.seleniumdemo.tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pl.seleniumdemo.pages.HotelSearchPage;
+import pl.seleniumdemo.pages.ResultsPage;
 
 public class HotelSearchHomeworkTest extends BaseTest {
 
 
     @Test
     public void searchHotelWithoutNameTest() {
-        driver.get("http://www.kurs-selenium.pl/demo/");
-        driver.findElement(By.name("checkin")).sendKeys("17/04/2021");
-        driver.findElement(By.name("checkout")).click();
-        driver.findElements(By.xpath("//td[@class='day ' and text()='30']"))
-                .stream()
-                .filter(WebElement::isDisplayed)
-                .findFirst()
-                .ifPresent(WebElement::click);
-        driver.findElement(By.id("travellersInput")).click();
-        driver.findElement(By.id("childPlusBtn")).click();
-        driver.findElement(By.xpath("//button[text()=' Search']")).click();
 
-        WebElement noResultHeading = driver.findElement(By.xpath("//h2[@class='text-center']"));
-        Assert.assertTrue(noResultHeading.isDisplayed());
-        Assert.assertEquals(noResultHeading.getText(),"No Results Found");
+        HotelSearchPage hotelSearchPage = new HotelSearchPage(driver);
+        hotelSearchPage.setDates("25/04/2021","30/04/2021");
+        hotelSearchPage.setTravellers(0,1);
+        hotelSearchPage.performSearch();
+
+        ResultsPage resultsPage = new ResultsPage(driver);
+
+        Assert.assertTrue(resultsPage.resultHeading.isDisplayed());
+        Assert.assertEquals(resultsPage.getHeadingText(),"No Results Found");
         
 
 
