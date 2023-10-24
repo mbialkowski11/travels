@@ -36,16 +36,16 @@ public class HotelSearchPage {
     @FindBy(xpath = "//button[text()=' Search']")
     private WebElement searchButton;
 
-    @FindBy (id = "li_myaccount")
+    @FindBy(id = "li_myaccount")
     private List<WebElement> myAccountLink;
 
-    @FindBy (xpath = "//a[text()='  Sign Up']")
+    @FindBy(xpath = "//a[text()='  Sign Up']")
     private List<WebElement> signUpLink;
 
     private WebDriver driver;
 
     public HotelSearchPage(WebDriver driver) {
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
@@ -53,7 +53,7 @@ public class HotelSearchPage {
     public void setCity(String cityName) {
         searchHotelSpan.click();
         searchHotelInput.sendKeys(cityName);
-        String xpath = String.format("//span[@class='select2-match' and text()='%s']",cityName);
+        String xpath = String.format("//span[@class='select2-match' and text()='%s']", cityName);
         driver.findElement(By.xpath(xpath)).click();
     }
 
@@ -64,13 +64,13 @@ public class HotelSearchPage {
 
     public void setTravellers(int adultsToAdd, int childToAdd) {
         travellersInput.click();
-        addTraveller(adultPlusBtn,adultsToAdd);
-        addTraveller(childPlusBtn,childToAdd);
+        addTraveller(adultPlusBtn, adultsToAdd);
+        addTraveller(childPlusBtn, childToAdd);
 
     }
 
-    public void addTraveller (WebElement travellerBtn, int numberOfTravellers) {
-        for (int i=0; i< numberOfTravellers; i++) {
+    public void addTraveller(WebElement travellerBtn, int numberOfTravellers) {
+        for (int i = 0; i < numberOfTravellers; i++) {
             travellerBtn.click();
         }
 
@@ -85,8 +85,6 @@ public class HotelSearchPage {
         myAccountLink.stream().filter(WebElement::isDisplayed).findFirst().ifPresent(WebElement::click);
         signUpLink.get(1).click();
     }
-
-
 
 
 }

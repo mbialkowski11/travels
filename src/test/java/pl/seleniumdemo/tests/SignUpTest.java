@@ -12,9 +12,7 @@ public class SignUpTest extends BaseTest {
     @Test
     public void signUpTest() {
 
-
-        String lastname = "Testowy";
-        int randomNumber = (int) (Math.random()*10000);
+        int randomNumber = (int) (Math.random() * 10000);
         String email = "tester" + randomNumber + "@tester.pl";
 
         HotelSearchPage hotelSearchPage = new HotelSearchPage(driver);
@@ -22,7 +20,7 @@ public class SignUpTest extends BaseTest {
 
         SignUpPage signUpPage = new SignUpPage(driver);
         signUpPage.setFirstName("Bartek");
-        signUpPage.setLastName(lastname);
+        signUpPage.setLastName("Testowy");
         signUpPage.setPhoneNumber("111111111");
         signUpPage.setEmailAdress(email);
         signUpPage.setPassword("Test123");
@@ -32,10 +30,8 @@ public class SignUpTest extends BaseTest {
 
         LoggedUserPage loggedUserPage = new LoggedUserPage(driver);
 
-        Assert.assertTrue(loggedUserPage.getHeadingText().contains(lastname));
-        Assert.assertEquals(loggedUserPage.getHeadingText(),"Hi, Bartek Testowy");
-
-
+        Assert.assertTrue(loggedUserPage.getHeadingText().contains("Testowy"));
+        Assert.assertEquals(loggedUserPage.getHeadingText(), "Hi, Bartek Testowy");
 
 
     }

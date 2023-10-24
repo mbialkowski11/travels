@@ -21,7 +21,6 @@ public class SignUpHomeworkTest extends BaseTest {
         signUpPage.performSignUp();
 
 
-
         List<String> errors = signUpPage.getErrorTexts();
 
         SoftAssert softAssert = new SoftAssert();
