@@ -84,25 +84,5 @@ public class SignUpPage {
 
     }
 
-    public void fillSignUpForm(String firstName, String lastName, String phone, String email, String password) {
-        setFirstName(firstName);
-        setLastName(lastName);
-        setPhoneNumber(phone);
-        setEmailAdress(email);
-        setPassword(password);
-        setConfirmPassword(password);
-        performSignUp();
-    }
-
-    public void fillSignUpForm(User user) {
-        setFirstName(user.getFirstName());
-        setLastName(user.getLastName());
-        setPhoneNumber(user.getPhone());
-        setEmailAdress(user.getEmail());
-        setPassword(user.getPassword());
-        setConfirmPassword(user.getPassword());
-        performSignUp();
-    }
-
 
 }

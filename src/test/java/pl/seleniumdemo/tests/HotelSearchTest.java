@@ -31,8 +31,6 @@ public class HotelSearchTest extends BaseTest {
         Assert.assertEquals(hotelNames.get(3),"Hyatt Regency Perth");
 
 
-        hotelNames.forEach(System.out::println);
-
     }
 
 }
