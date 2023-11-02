@@ -1,5 +1,6 @@
 package pl.seleniumdemo.tests;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -19,6 +20,7 @@ public class SignUpHomeworkTest extends BaseTest {
 
         SignUpPage signUpPage = new SignUpPage(driver);
         signUpPage.performSignUp();
+
 
 
         List<String> errors = signUpPage.getErrorTexts();
